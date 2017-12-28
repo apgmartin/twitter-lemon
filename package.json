@@ -1,9 +1,9 @@
 {
   "name": "twitter-lemon",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A configurable twitter API wrapper",
   "main": "index.js",
-  "repository" : {
+  "repository": {
     "type": "git",
     "url": "https://github.com/apgmartin/twitter-lemon"
   },
