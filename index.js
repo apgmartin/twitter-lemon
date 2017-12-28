@@ -12,7 +12,6 @@ exports.createClient = function(consumerKey, consumerSecret, accessTokenKey, acc
 exports.streamTweets = function(client, searchString, callback) {
 	var stream = client.stream('statuses/filter', {track: searchString});
 	stream.on('data', function(event) {
-		console.log(event.text);
 		callback();
 	});
 
@@ -32,13 +31,7 @@ exports.getTweets = function(client, searchString, sinceId, callback) {
 	}
 
 	client.get('search/tweets', params).then((tweets) => {
-		console.log('Number of tweets: ' + tweets.statuses.length);
-
 		if (tweets.statuses[0]) {
-			for (let tweet of tweets.statuses) {
-				console.log('Got your tweet: ' + tweet.user.name);
-			}
-			// console.log(tweets.statuses[0]);
 			callback(tweets.statuses[0].id_str, tweets.statuses.length)
 		} else {
 			console.log('No new tweets');
